@@ -20,14 +20,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "kyt": "^0.2.2",
     "compression": "^1.6.2",
     "enzyme": "^2.4.1",
     "express": "^4.14.0",
+    "kyt": "^0.2.2",
     "path": "^0.12.7",
     "react": "^15.3.0",
     "react-addons-test-utils": "^15.3.0",
     "react-dom": "^15.3.0",
-    "react-router": "^2.6.1"
+    "react-redux": "^4.4.5",
+    "react-router": "^2.6.1",
+    "redux": "^3.6.0",
+    "redux-async-connect": "^1.0.0-rc4"
   }
 }

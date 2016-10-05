@@ -1,8 +1,8 @@
-
 import React from 'react';
+import { connect } from 'react-redux';
 import styles from './styles.scss';
 
-function Tools() {
+function Tools({ counter, inc, dec }) {
   return (
     <ul>
       <li className={styles.tool}>
@@ -20,8 +20,21 @@ function Tools() {
       <li className={styles.tool}>
         <a href="https://github.com/airbnb/enzyme">Enzyme</a> - React component testing
       </li>
+      <li>
+        Counter: {counter}
+        <button onClick={inc}>increment</button>
+        <button onClick={dec}>decrement</button>
+      </li>
     </ul>
   );
 }
 
-export default Tools;
+export default connect(
+  state => ({
+    counter: state.counter
+  }),
+  dispatch => ({
+    inc: () => dispatch({ type: 'INCREMENT' }),
+    dec: () => dispatch({ type: 'DECREMENT' })
+  })
+)(Tools);

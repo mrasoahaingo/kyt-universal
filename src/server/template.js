@@ -21,6 +21,7 @@ export default vo => `
   </head>
 
   <body>
+    <script>window.__INITIAL_STATE__ = ${JSON.stringify(vo.initialState)}</script>  
     <div id="root"><div>${vo.root}</div></div>
     <script src="${vo.jsBundle}"></script>
   </body>

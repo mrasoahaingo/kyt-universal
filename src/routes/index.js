@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Route from 'react-router/lib/Route';
 import IndexRoute from 'react-router/lib/IndexRoute';
@@ -11,21 +10,34 @@ import App from '../components/App';
 const importHome = (nextState, cb) => {
   System.import('../components/Home')
     .then(module => cb(null, module.default))
-    .catch((e) => { throw e; });
+    .catch((e) => {
+      throw e;
+    });
 };
 
 const importTools = (nextState, cb) => {
   System.import('../components/Tools')
     .then(module => cb(null, module.default))
-    .catch((e) => { throw e; });
+    .catch((e) => {
+      throw e;
+    });
+};
+
+const importUsers = (nextState, cb) => {
+  System.import('../components/Users')
+    .then(module => cb(null, module.default))
+    .catch((e) => {
+      throw e;
+    });
 };
 
 // We use `getComponent` to dynamically load routes.
 // https://github.com/reactjs/react-router/blob/master/docs/guides/DynamicRouting.md
 const routes = (
   <Route path="/" component={App}>
-    <IndexRoute getComponent={importHome} />
-    <Route path="tools" getComponent={importTools} />
+    <IndexRoute getComponent={importHome}/>
+    <Route path="tools" getComponent={importTools}/>
+    <Route path="users" getComponent={importUsers}/>
   </Route>
 );
 
@@ -35,6 +47,7 @@ const routes = (
 if (module.hot) {
   require('../components/Home');    // eslint-disable-line global-require
   require('../components/Tools');   // eslint-disable-line global-require
+  require('../components/Users');   // eslint-disable-line global-require
 }
 
 export default routes;
