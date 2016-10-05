@@ -23,8 +23,16 @@ const importTools = (nextState, cb) => {
     });
 };
 
-const importUsers = (nextState, cb) => {
-  System.import('../components/Users')
+const importUserList = (nextState, cb) => {
+  System.import('../components/User/list')
+    .then(module => cb(null, module.default))
+    .catch((e) => {
+      throw e;
+    });
+};
+
+const importUser = (nextState, cb) => {
+  System.import('../components/User')
     .then(module => cb(null, module.default))
     .catch((e) => {
       throw e;
@@ -37,7 +45,10 @@ const routes = (
   <Route path="/" component={App}>
     <IndexRoute getComponent={importHome}/>
     <Route path="tools" getComponent={importTools}/>
-    <Route path="users" getComponent={importUsers}/>
+    <Route path="user">
+      <IndexRoute getComponent={importUserList}/>
+      <Route path=":id" getComponent={importUser}/>
+    </Route>
   </Route>
 );
 
@@ -47,7 +58,8 @@ const routes = (
 if (module.hot) {
   require('../components/Home');    // eslint-disable-line global-require
   require('../components/Tools');   // eslint-disable-line global-require
-  require('../components/Users');   // eslint-disable-line global-require
+  require('../components/User');   // eslint-disable-line global-require
+  require('../components/User/list');   // eslint-disable-line global-require
 }
 
 export default routes;

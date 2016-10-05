@@ -4,5 +4,5 @@
 
 module.exports = {
   reactHotLoader: true,
-  debug: false,
+  debug: true,
 };

@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Link from 'react-router/lib/Link';
+import { Link } from 'react-router';
 import styles from './styles.scss';
 
 const App = ({ children }) => {
@@ -14,7 +14,7 @@ const App = ({ children }) => {
           <Link className={styles.link} to="/tools">Tools</Link>
         </li>
         <li className={styles.navItem}>
-          <Link className={styles.link} to="/users">Users</Link>
+          <Link className={styles.link} to="/user">Users</Link>
         </li>
       </ul>
       <div className={styles.content}>
