@@ -65,9 +65,8 @@ app.get('*', (request, response) => {
 
           response.status(200).send(`<!doctype html>${html}`);
 
-        }, (error) => {
-          console.log(error);
-          response.status(503).send('Fail on fetching data' + JSON.stringify(error));
+        }, () => {
+          response.status(503).send('Fail on fetching data');
         })
         .catch(() => {
           response.status(500).send('Fail on fetching data');
