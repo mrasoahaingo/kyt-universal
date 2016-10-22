@@ -1,10 +1,14 @@
 {
   "name": "kyt-universal",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.3.0"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "npm run build",
     "dev": "kyt dev",
     "build": "kyt build",
     "start": "kyt start",
